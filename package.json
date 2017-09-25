@@ -10,7 +10,9 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "nuxt": "^1.0.0-rc6",
+    "promise-polyfill": "^6.0.2",
     "vuetify": "^0.15.7"
   },
   "devDependencies": {
