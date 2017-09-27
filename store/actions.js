@@ -1,20 +1,26 @@
 import axios from 'axios'
 
+const env = {
+  apiHost: process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'http://pulap.com:8080',
+  apiPath: '/api/v1'
+}
+
 const config = {
-  apiHost: process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'http://pulap.com:8080'
+  signupURL: env.apiHost + env.apiPath + '/signup',
+  signinURL: env.apiHost + env.apiPath + '/login'
 }
 
 const actions = {
   signUserUp ({commit}, payload) {
     commit('setLoading', true)
     commit('clearError')
-    axios.post(config.apiHost + '/api/v1/signup', payload)
+    axios.post(config.signupURL, payload)
       .then(
         user => {
           commit('setLoading', false)
           console.log(user)
           const newUser = {
-            id: user.uid
+            id: user.ID
           }
           commit('setUser', newUser)
         }
@@ -30,7 +36,8 @@ const actions = {
   signUserIn ({commit}, payload) {
     commit('setLoading', true)
     commit('clearError')
-    axios.get(`http://localhost:8080/api/v1/signin`)
+    console.log(payload)
+    axios.post(config.signinURL, payload)
       .then(
         user => {
           commit('setLoading', false)
