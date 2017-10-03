@@ -2,8 +2,14 @@ const mutations = {
   toggleSidebar (state) {
     state.sidebar = !state.sidebar
   },
-  setUser (state, payload) {
-    state.user = payload
+  setToken (state, payload) {
+    state.token = payload
+  },
+  setSessionUser (state, payload) {
+    state.sessionUser = payload
+  },
+  SET_USER (state, user) {
+    state.user = user || null
   },
   setLoading (state, payload) {
     state.loading = payload

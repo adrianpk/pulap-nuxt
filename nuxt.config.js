@@ -1,5 +1,11 @@
 module.exports = {
   /*
+  ** Router config
+  */
+  router: {
+    middleware: 'check-auth'
+  },
+  /*
   ** Headers of the page
   */
   head: {
@@ -14,7 +20,8 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ]
   },
-  plugins: ['~/plugins/vuetify.js'],
+  plugins: ['~/plugins/vuetify.js',
+    '~/plugins/alert.js'],
   css: [
     '~/assets/style/app.styl'
   ],
@@ -25,6 +32,13 @@ module.exports = {
   /*
   ** Build configuration
   */
+  /*
+  ** Environement variables
+  */
+  env: {
+    AUTH0_CLIENT_ID: '',
+    AUTH0_CLIENT_DOMAIN: ''
+  },
   build: {
     vendor: ['vuetify'],
     extractCSS: true,
@@ -43,3 +57,5 @@ module.exports = {
     }
   }
 }
+
+

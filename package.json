@@ -10,10 +10,16 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "auth0-js": "^8.10.1",
+    "auth0-lock": "^10.22.0",
     "axios": "^0.16.2",
+    "js-cookie": "^2.1.4",
+    "jwt-decode": "^2.2.0",
     "nuxt": "^1.0.0-rc6",
     "promise-polyfill": "^6.0.2",
-    "vuetify": "^0.15.7"
+    "uuid": "^3.1.0",
+    "vuetify": "^0.15.7",
+    "vuex-persistedstate": "^2.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
