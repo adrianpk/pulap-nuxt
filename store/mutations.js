@@ -1,15 +1,17 @@
+import { setToken } from '~/utils/auth'
+
 const mutations = {
   toggleSidebar (state) {
     state.sidebar = !state.sidebar
   },
-  setToken (state, payload) {
-    state.token = payload
+  setToken (state, token) {
+    state.token = token
+    setToken(token)
   },
-  setSessionUser (state, payload) {
-    state.sessionUser = payload
-  },
-  SET_USER (state, user) {
-    state.user = user || null
+  setSignedInUser (state, user) {
+    console.log('setSignedInUser')
+    state.signedInUser = user || null
+    // console.log('Usuario signeado ' + state.signedInUser)
   },
   setLoading (state, payload) {
     state.loading = payload

@@ -25,6 +25,17 @@ export const setToken = (token) => {
   Cookie.set('jwt', token)
 }
 
+export const getToken = () => {
+  if (process.SERVER_BUILD) return
+  const jwt = Cookie.get('jwt')
+  if (jwt == null) {
+    if (process.BROWSER_BUILD) {
+      return window.localStorage.getItem('token')
+    }
+  }
+  return jwt
+}
+
 export const unsetToken = () => {
   if (process.SERVER_BUILD) return
   window.localStorage.removeItem('token')

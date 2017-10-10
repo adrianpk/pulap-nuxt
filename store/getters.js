@@ -12,13 +12,10 @@ const getters = {
     return state.token
   },
   isAuthenticated (state) {
-    return !!state.user
+    return !!state.signedInUser
   },
-  loggedUser (state) {
-    return state.user
-  },
-  users (state) {
-    return state.users
+  signedInUser (state) {
+    return state.signedInUser
   }
 }
 

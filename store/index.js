@@ -23,9 +23,7 @@ const store = () => {
       loading: false,
       error: null,
       token: null,
-      user: null,
-      sessionUser: null,
-      users: []
+      signedInUser: null
     },
     mutations,
     actions,

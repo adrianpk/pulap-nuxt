@@ -27,7 +27,8 @@ const actions = {
           const newUser = {
             id: user.ID
           }
-          commit('setSessionUser', newUser)
+          console.log('signUserUp')
+          commit('setSignedInUser', newUser)
         }
       )
       .catch(
@@ -53,14 +54,16 @@ const actions = {
         // console.log(JSON.stringify(jsonData.token, null, 4))
         const token = jsonData.token
         commit('setToken', token)
+        console.log('Token is ' + token)
         const user = jsonData.user
-        const sessionUser = {
+        const signedInUser = {
           id: user.id,
           username: user.username,
           email: user.email,
           name: user.name
         }
-        commit('setSessionUser', sessionUser)
+        console.log('signUserIn')
+        commit('setSignedInUser', signedInUser)
       })
       .catch(
         error => {
@@ -71,10 +74,12 @@ const actions = {
       )
   },
   autoSignIn ({commit}, payload) {
-    commit('setUser', {id: payload.uid})
+    console.log('autoSignIn')
+    commit('setSignedInUser', {id: payload.uid})
   },
   logout ({commit}) {
-    commit('setUser', null)
+    console.log('logout')
+    commit('setSignedInUser', null)
   }
 }
 
